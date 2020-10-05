@@ -26,15 +26,18 @@
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
                 <th scope="col">Typ</th>
+                <th scope="col">Staffeln</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
+                @foreach ($media as $m)
+                <tr>
+                    <th scope="row">{{ $m->id }}</th>
+                    <td>{{ $m->name }}</td>
+                    <td>{{ $m->type }}</td>
+                    <td>{{ $m->seasons }}</td>
+                  </tr>
+                @endforeach              
             </tbody>
           </table>
     </div>

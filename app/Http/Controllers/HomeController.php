@@ -24,8 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $media = \App\Models\Media::all();
+
         return view('home', [
             'user' => Auth::user(),
+            'media' => $media,
         ]);
     }
 }
