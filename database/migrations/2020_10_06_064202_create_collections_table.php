@@ -17,7 +17,6 @@ class CreateCollectionsTable extends Migration
             $table->id();            
             $table->string('name');
             $table->string('type');
-            $table->integer('seasons')->nullable();
             $table->timestamps();
         });
     }

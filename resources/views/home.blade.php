@@ -11,7 +11,7 @@
             <h1>{{ $user->name }}</h1>
             </div>
             <div class="d-flex">
-                <div class="pr-5"><strong>153</strong> entries</div>
+                <div class="pr-5"><strong>{{ sizeof($media) }}</strong> entries</div>
                 <div class="pr-5"><strong>153</strong> completed</div>
                 <div class="pr-5"><strong>40</strong>%</div>
             </div>
@@ -24,18 +24,18 @@
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Name</th>
+                <th scope="col">Title</th>
+                <th scope="col"></th>
                 <th scope="col">Typ</th>
-                <th scope="col">Staffeln</th>
               </tr>
             </thead>
             <tbody>
                 @foreach ($media as $m)
                 <tr>
                     <th scope="row">{{ $m->id }}</th>
-                    <td>{{ $m->name }}</td>
+                    <td>{{ $m->title }}</td>
+                    <td>{{ $m->subtitle }}</td>
                     <td>{{ $m->type }}</td>
-                    <td>{{ $m->seasons }}</td>
                   </tr>
                 @endforeach              
             </tbody>

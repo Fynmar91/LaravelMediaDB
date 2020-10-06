@@ -17,8 +17,8 @@ class CreateMediaTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('subtitle');
-            $table->integer('index');
             $table->string('type');
+            $table->integer('index')->nullable();
             $table->integer('episodes')->nullable();
             $table->string('genre')->nullable();
             $table->string('author')->nullable();
@@ -28,7 +28,7 @@ class CreateMediaTable extends Migration
             $table->string('startDate')->nullable();
             $table->string('completeDate')->nullable();
             $table->string('lastDate')->nullable();
-            $table->unsignedBigInteger('collection_id');
+            $table->unsignedBigInteger('collection_id')->nullable();
             $table->timestamps();
 
             $table->index('collection_id');
