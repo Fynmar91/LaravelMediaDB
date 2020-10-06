@@ -15,7 +15,8 @@ class CreateMediaTable extends Migration
     {
         Schema::create('media', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('title');
+            $table->string('subtitle');
             $table->integer('index');
             $table->string('type');
             $table->integer('episodes')->nullable();

@@ -14,8 +14,7 @@ class CreateCollectionsTable extends Migration
     public function up()
     {
         Schema::create('collections', function (Blueprint $table) {
-            $table->id();
-            
+            $table->id();            
             $table->string('name');
             $table->string('type');
             $table->integer('seasons')->nullable();
