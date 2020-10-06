@@ -20,4 +20,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/index', [App\Http\Controllers\MediaController::class, 'index'])->name('index');
+
+Route::get('/m/create', [App\Http\Controllers\MediaController::class, 'create']);
+Route::post('/m', [App\Http\Controllers\MediaController::class, 'store']);

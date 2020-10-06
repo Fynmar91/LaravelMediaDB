@@ -16,7 +16,7 @@
                 <div class="pr-5"><strong>40</strong>%</div>
             </div>
             <div class="pt-4 font-weight-bold">ghghfghg</div>
-            <div class="pt-4">fd;glfd';gldf\'gl\fdlgfdlsg\ldfs'gl\'dflsg\ldfsg\'ldsf\'gld\fsg\dsf</div>
+            <a href="/m/create">Medieneintrag hinzufügen</a>
         </div>
     </div>
     <div class="row">
