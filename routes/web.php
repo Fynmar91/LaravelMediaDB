@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,4 @@ Route::get('/index', [App\Http\Controllers\MediaController::class, 'index'])->na
 
 Route::get('/m/create', [App\Http\Controllers\MediaController::class, 'create']);
 Route::post('/m', [App\Http\Controllers\MediaController::class, 'store']);
+Route::get('/m/{m}', [App\Http\Controllers\MediaController::class, 'show']);

@@ -9,6 +9,8 @@ class Media extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function collection()
     {
         return $this->belongsTo(Collection::class);

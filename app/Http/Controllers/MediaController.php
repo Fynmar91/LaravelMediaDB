@@ -36,9 +36,20 @@ class MediaController extends Controller
     {
         $data = request()->validate([
             'title' => 'required',
+            'subtitle' => '',
             'type' => 'required',
+            'subtype' => '',
         ]);
 
-        dd($data);
+        \App\Models\Media::create($data);
+    }
+
+    public function show($m)
+    {
+        $media = \App\Models\Media::findOrFail($m);
+
+        return view('media.show', [
+            'media' => $media,
+        ]);
     }
 }
