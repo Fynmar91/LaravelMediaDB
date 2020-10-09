@@ -12,7 +12,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="title" class="col-md-4 col-form-label">Title</label>        
+                    <label for="title" class="col-md-4 col-form-label">Titel</label>        
                     <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" 
                         name="title" value="{{ old('title') }}" required autocomplete="title" autofocus>        
                         @error('title')
@@ -23,7 +23,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="subtitle" class="col-md-4 col-form-label">Untertitle</label>        
+                    <label for="subtitle" class="col-md-4 col-form-label">Untertitel</label>        
                     <input id="subtitle" type="text" class="form-control @error('subtitle') is-invalid @enderror" 
                         name="subtitle" value="{{ old('subtitle') }}" required autocomplete="subtitle">        
                         @error('subtitle')
