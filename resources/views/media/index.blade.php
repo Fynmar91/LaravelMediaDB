@@ -20,24 +20,7 @@
         </div>
     </div>
     <div class="row">
-        <table class="table table-hover table-dark">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Title</th>
-                <th scope="col"></th>
-              </tr>
-            </thead>
-            <tbody>
-                @foreach ($media as $m)
-                <tr>
-                    <th scope="row">{{ $m->id }}</th>
-                    <td>{{ $m->title }}</td>
-                    <td>{{ $m->subtitle }}</td>
-                  </tr>
-                @endforeach              
-            </tbody>
-          </table>
+        <index-table :media="{{ $media }}"></index-table>
     </div>
 </div>
 @endsection
