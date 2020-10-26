@@ -33,26 +33,12 @@
                         @enderror
                 </div>
 
-                <div class="form-group row">
-                    <label for="type" class="col-md-4 col-form-label">Tag</label>    
-                    <div class="form-check form-check-inline @error('type') is-invalid @enderror">
-                        <input class="form-check-input" type="radio" name="type" id="type" value="Buch">
-                        <label class="form-check-label" for="type">Buch</label>
-                      </div>
-                      <div class="form-check form-check-inline @error('type') is-invalid @enderror">
-                        <input class="form-check-input" type="radio" name="type" id="type" value="Film">
-                        <label class="form-check-label" for="type">Film</label>
-                      </div>
-                      <div class="form-check form-check-inline @error('type') is-invalid @enderror">
-                        <input class="form-check-input" type="radio" name="type" id="type" value="Staffel">
-                        <label class="form-check-label" for="type">Staffel</label>
-                      </div>
-                      @error('type')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+                <div class="form-group">
+                    <label for="tags" class="col-form-label">Tags</label>
+                    <tag-input class="@error('subtitle') is-invalid @enderror"></tag-input>
                 </div>
+
+                
 
                 <div class="row pt-4">
                     <button class="btn btn-primary">Add Media</button>
