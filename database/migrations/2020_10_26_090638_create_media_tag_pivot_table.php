@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCollectionsTable extends Migration
+class CreateMediaTagPivotTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateCollectionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('collections', function (Blueprint $table) {
-            $table->id();            
-            $table->string('name');
+        Schema::create('media_tag', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('tag_id')->nullable();
+            $table->unsignedBigInteger('media_id')->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateCollectionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('collections');
+        Schema::dropIfExists('media_tag');
     }
 }

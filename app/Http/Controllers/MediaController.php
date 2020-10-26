@@ -37,19 +37,22 @@ class MediaController extends Controller
         $data = request()->validate([
             'title' => 'required',
             'subtitle' => '',
-            'type' => 'required',
-            'subtype' => '',
         ]);
 
-        \App\Models\Media::create($data);
+        $media = \App\Models\Media::create($data);
+
+        $tag = \App\Models\Tag::findOrFail(1);
+        $media->tags()->attach($tag->id);
     }
 
     public function show($m)
     {
         $media = \App\Models\Media::findOrFail($m);
+        $tags = $media->tags;
 
         return view('media.show', [
             'media' => $media,
+            'tags' => $tags,
         ]);
     }
 }

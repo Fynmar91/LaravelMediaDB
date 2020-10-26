@@ -26,7 +26,6 @@
                 <th scope="col">#</th>
                 <th scope="col">Title</th>
                 <th scope="col"></th>
-                <th scope="col">Typ</th>
               </tr>
             </thead>
             <tbody>
@@ -35,7 +34,6 @@
                     <th scope="row">{{ $m->id }}</th>
                     <td>{{ $m->title }}</td>
                     <td>{{ $m->subtitle }}</td>
-                    <td>{{ $m->type }}</td>
                   </tr>
                 @endforeach              
             </tbody>

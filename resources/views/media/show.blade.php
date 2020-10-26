@@ -8,47 +8,45 @@
                 <h1>{{ $media->title }}</h1>
             </div>
             <div class="row">
-                <h1>{{ $media->subtitle }}</h1>
+                <h2>{{ $media->subtitle }}</h2>
             </div>
             <div class="row">
-                <h1>{{ $media->type }}</h1>
+                <h2>{{ $media->index }}</h2>
             </div>
             <div class="row">
-                <h1>{{ $media->subtype }}</h1>
+                <h2>{{ $media->size }}</h2>
             </div>
             <div class="row">
-                <h1>{{ $media->index }}</h1>
+                <h2>{{ $media->status }}</h2>
             </div>
             <div class="row">
-                <h1>{{ $media->episodes }}</h1>
+                <h2>{{ $media->rating }}</h2>
             </div>
             <div class="row">
-                <h1>{{ $media->genre }}</h1>
+                <h2>{{ $media->releaseDate }}</h2>
             </div>
             <div class="row">
-                <h1>{{ $media->author }}</h1>
+                <h2>{{ $media->startDate }}</h2>
             </div>
             <div class="row">
-                <h1>{{ $media->status }}</h1>
+                <h2>{{ $media->completeDate }}</h2>
             </div>
             <div class="row">
-                <h1>{{ $media->rating }}</h1>
+                <h2>{{ $media->lastDate }}</h2>
             </div>
             <div class="row">
-                <h1>{{ $media->releaseDate }}</h1>
+                <h2>{{ $media->author_id }}</h2>
             </div>
             <div class="row">
-                <h1>{{ $media->startDate }}</h1>
+                <h2>{{ $media->collection_id }}</h2>
             </div>
             <div class="row">
-                <h1>{{ $media->completeDate }}</h1>
-            </div>
-            <div class="row">
-                <h1>{{ $media->lastDate }}</h1>
-            </div>
-            <div class="row">
-                <h1>{{ $media->collection_id }}</h1>
-            </div>
+                <h2>Tags:</h2>
+                <br>
+                @foreach ($tags as $tag)
+                    <h3>{{ $tag->name }}</h3>
+                @endforeach
+            </div>            
             <div class="row">
             </div>
         </div>

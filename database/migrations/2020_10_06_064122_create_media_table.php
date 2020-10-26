@@ -17,21 +17,19 @@ class CreateMediaTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('subtitle')->nullable();
-            $table->string('type');
-            $table->string('subtype')->nullable();
             $table->integer('index')->nullable();
-            $table->integer('episodes')->nullable();
-            $table->string('genre')->nullable();
-            $table->string('author')->nullable();
+            $table->integer('size')->nullable();
             $table->string('status')->nullable();
             $table->integer('rating')->nullable();
             $table->string('releaseDate')->nullable();
             $table->string('startDate')->nullable();
             $table->string('completeDate')->nullable();
             $table->string('lastDate')->nullable();
+            $table->unsignedBigInteger('author_id')->nullable();
             $table->unsignedBigInteger('collection_id')->nullable();
             $table->timestamps();
 
+            $table->index('author_id');
             $table->index('collection_id');
         });
     }
