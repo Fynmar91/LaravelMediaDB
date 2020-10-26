@@ -40,9 +40,9 @@ class MediaController extends Controller
         ]);
 
         $media = \App\Models\Media::create($data);
-
         $tag = \App\Models\Tag::findOrFail(1);
         $media->tags()->attach($tag->id);
+        return redirect()->route('index');
     }
 
     public function show($m)
@@ -54,5 +54,11 @@ class MediaController extends Controller
             'media' => $media,
             'tags' => $tags,
         ]);
+    }
+
+    public function destroy($m)
+    {
+        \App\Models\Media::destroy($m);
+        return redirect()->route('index');
     }
 }

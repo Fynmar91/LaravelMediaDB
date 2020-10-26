@@ -46,8 +46,15 @@
                 @foreach ($tags as $tag)
                     <h3>{{ $tag->name }}</h3>
                 @endforeach
-            </div>            
+            </div>
             <div class="row">
+                <form action="/m/{{ $media->id }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <div class="row pt-4">
+                        <button class="btn btn-danger">Delete</button>
+                    </div>                
+                </form>
             </div>
         </div>
     </div>
