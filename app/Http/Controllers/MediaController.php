@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\Types\Null_;
 
 class MediaController extends Controller
 {
@@ -29,19 +30,38 @@ class MediaController extends Controller
 
     public function create()
     {
-        return view('media.create');
+        $tags = \App\Models\Tag::all();
+
+        return view('media.create', [
+            'tags' => $tags,
+        ]);
     }
 
     public function store()
     {
+        $k = "value";
+        $requestTags = request()->all()["tags"]; 
         $data = request()->validate([
             'title' => 'required',
             'subtitle' => '',
         ]);
 
         $media = \App\Models\Media::create($data);
-        $tag = \App\Models\Tag::findOrFail(1);
-        $media->tags()->attach($tag->id);
+
+        foreach ($requestTags as $value) {
+
+            $key = strtolower(json_decode($value)->$k);
+            $existingTag = \App\Models\Tag::where('name', $key)->first();
+
+            if (!is_null($existingTag)) {
+                $media->tags()->attach($existingTag->id);
+            }
+            else {
+                $newTag = \App\Models\Tag::create(['name' => $key]);
+                $media->tags()->attach($newTag->id);
+            }
+        }
+
         return redirect()->route('index');
     }
 
@@ -59,6 +79,7 @@ class MediaController extends Controller
     public function destroy($m)
     {
         \App\Models\Media::destroy($m);
+
         return redirect()->route('index');
     }
 }

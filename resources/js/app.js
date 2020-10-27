@@ -22,6 +22,9 @@ window.Vue = require('vue');
 Vue.component('index-table', require('./components/IndexTable.vue').default);
 Vue.component('tag-input', require('./components/InputTags.vue').default);
 
+import VoerroTagsInput from '@voerro/vue-tagsinput';
+Vue.component('tags-input', VoerroTagsInput);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

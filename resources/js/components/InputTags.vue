@@ -1,20 +1,34 @@
 <template>
     <tags-input element-id="tags"
-    v-model="selectedTags"
-    :existing-tags="[
-        { key: 'web-development', value: 'Web Development' },
-        { key: 'php', value: 'PHP' },
-        { key: 'javascript', value: 'JavaScript' },
-    ]"
-    :typeahead="true"></tags-input>
+        v-model="selectedTags"
+        :existing-tags="existingTags"
+        :typeahead="true">
+    </tags-input>
 </template>
 
 <script>
-import VoerroTagsInput from '@voerro/vue-tagsinput';
-Vue.component('tags-input', VoerroTagsInput);
 
 export default {
-    props: ['existing-tags'],
+    props: ['tags'],
+    data() {
+        return {
+            selectedTags: [],
+            existingTags: [],
+        }
+    },
+    mounted() {
+        var dict = [];
+            
+        this.tags.forEach(element => {
+            dict.push({
+                key:   element.id,
+            value: element.name,
+            });
+        });
+        this.existingTags = dict;
+        
+        console.log("Test: ", this.existingTags);
+    },
 }
 </script>
 

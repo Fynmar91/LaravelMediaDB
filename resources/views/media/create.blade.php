@@ -35,10 +35,16 @@
 
                 <div class="form-group">
                     <label for="tags" class="col-form-label">Tags</label>
-                    <tag-input class="@error('subtitle') is-invalid @enderror"></tag-input>
+                    <tag-input :tags="{{ $tags }}" class="@error('subtitle') is-invalid @enderror"></tag-input>
                 </div>
 
-                
+                <div class="row">
+                    <h2>Tags:</h2>
+                    <br>
+                    @foreach ($tags as $tag)
+                        <h3>"{{ $tag->name }}"_</h3>
+                    @endforeach
+                </div>                
 
                 <div class="row pt-4">
                     <button class="btn btn-primary">Add Media</button>

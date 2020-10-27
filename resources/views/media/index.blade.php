@@ -18,7 +18,7 @@
             <div class="pt-4 font-weight-bold">ghghfghg</div>
             <a href="/m/create">Medieneintrag hinzufügen</a>
         </div>
-    </div>
+    </div>    
     <div class="row">
         <index-table :media="{{ $media }}"></index-table>
     </div>

@@ -2037,7 +2037,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _voerro_vue_tagsinput__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @voerro/vue-tagsinput */ "./node_modules/@voerro/vue-tagsinput/src/main.js");
 //
 //
 //
@@ -2046,13 +2045,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-
-Vue.component('tags-input', _voerro_vue_tagsinput__WEBPACK_IMPORTED_MODULE_0__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['existing-tags']
+  props: ['tags'],
+  data: function data() {
+    return {
+      selectedTags: [],
+      existingTags: []
+    };
+  },
+  mounted: function mounted() {
+    var dict = [];
+    this.tags.forEach(function (element) {
+      dict.push({
+        key: element.id,
+        value: element.name
+      });
+    });
+    this.existingTags = dict;
+    console.log("Test: ", this.existingTags);
+  }
 });
 
 /***/ }),
@@ -39508,11 +39519,7 @@ var render = function() {
   return _c("tags-input", {
     attrs: {
       "element-id": "tags",
-      "existing-tags": [
-        { key: "web-development", value: "Web Development" },
-        { key: "php", value: "PHP" },
-        { key: "javascript", value: "JavaScript" }
-      ],
+      "existing-tags": _vm.existingTags,
       typeahead: true
     },
     model: {
@@ -51697,9 +51704,12 @@ module.exports = function(module) {
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _voerro_vue_tagsinput__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @voerro/vue-tagsinput */ "./node_modules/@voerro/vue-tagsinput/src/main.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -51720,6 +51730,8 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 Vue.component('index-table', __webpack_require__(/*! ./components/IndexTable.vue */ "./resources/js/components/IndexTable.vue")["default"]);
 Vue.component('tag-input', __webpack_require__(/*! ./components/InputTags.vue */ "./resources/js/components/InputTags.vue")["default"]);
+
+Vue.component('tags-input', _voerro_vue_tagsinput__WEBPACK_IMPORTED_MODULE_0__["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

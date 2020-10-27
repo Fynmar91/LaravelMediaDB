@@ -44,7 +44,7 @@
                 <h2>Tags:</h2>
                 <br>
                 @foreach ($tags as $tag)
-                    <h3>{{ $tag->name }}</h3>
+                    <h3>"{{ $tag->name }}"_</h3>
                 @endforeach
             </div>
             <div class="row">
