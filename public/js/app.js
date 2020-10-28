@@ -2028,14 +2028,46 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['media'],
+  data: function data() {
+    return {
+      mediaData: [],
+      currentSort: 'id',
+      currentSortDirection: 'asc'
+    };
+  },
   mounted: function mounted() {
     console.log('Component mounted.');
+    this.mediaData = this.media;
+    console.log(this.mediaData);
   },
   methods: {
     showMedia: function showMedia(id) {
       window.location.href = "/m/" + id;
+    },
+    sort: function sort(s) {
+      if (s === this.currentSort) {
+        this.currentSortDirection = this.currentSortDirection === 'asc' ? 'desc' : 'asc';
+      }
+
+      this.currentSort = s;
+    }
+  },
+  computed: {
+    sortedMedia: function sortedMedia() {
+      var _this = this;
+
+      return this.mediaData.sort(function (a, b) {
+        var modifier = 1;
+        if (_this.currentSortDirection === 'desc') modifier = -1;
+        if (a[_this.currentSort] === null) return 1 * modifier;
+        if (b[_this.currentSort] === null) return -1 * modifier;
+        if (a[_this.currentSort].toString().toLowerCase() < b[_this.currentSort].toString().toLowerCase()) return -1 * modifier;
+        if (a[_this.currentSort].toString().toLowerCase() > b[_this.currentSort].toString().toLowerCase()) return 1 * modifier;
+        return 0;
+      });
     }
   }
 });
@@ -39533,11 +39565,65 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "row" }, [
       _c("table", { staticClass: "table table-hover table-dark" }, [
-        _vm._m(2),
+        _c("thead", [
+          _c("tr", [
+            _c(
+              "th",
+              {
+                attrs: { scope: "col" },
+                on: {
+                  click: function($event) {
+                    return _vm.sort("id")
+                  }
+                }
+              },
+              [_vm._v("#")]
+            ),
+            _vm._v(" "),
+            _c(
+              "th",
+              {
+                attrs: { scope: "col" },
+                on: {
+                  click: function($event) {
+                    return _vm.sort("title")
+                  }
+                }
+              },
+              [_vm._v("Title")]
+            ),
+            _vm._v(" "),
+            _c(
+              "th",
+              {
+                attrs: { scope: "col" },
+                on: {
+                  click: function($event) {
+                    return _vm.sort("subtitle")
+                  }
+                }
+              },
+              [_vm._v("Subtitle")]
+            ),
+            _vm._v(" "),
+            _c(
+              "th",
+              {
+                attrs: { scope: "col" },
+                on: {
+                  click: function($event) {
+                    return _vm.sort("status")
+                  }
+                }
+              },
+              [_vm._v("Status")]
+            )
+          ])
+        ]),
         _vm._v(" "),
         _c(
           "tbody",
-          _vm._l(_vm.media, function(item) {
+          _vm._l(_vm.sortedMedia, function(item) {
             return _c(
               "tr",
               {
@@ -39564,7 +39650,14 @@ var render = function() {
           }),
           0
         )
-      ])
+      ]),
+      _vm._v(
+        "\n        debug: sort=" +
+          _vm._s(_vm.currentSort) +
+          ", dir=" +
+          _vm._s(_vm.currentSortDirection) +
+          "\n    "
+      )
     ])
   ])
 }
@@ -39585,22 +39678,6 @@ var staticRenderFns = [
     return _c("div", { staticClass: "pr-5" }, [
       _c("strong", [_vm._v("999")]),
       _vm._v("%")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Title")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Subtitle")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Status")])
-      ])
     ])
   }
 ]
