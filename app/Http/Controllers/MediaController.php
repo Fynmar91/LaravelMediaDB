@@ -38,9 +38,10 @@ class MediaController extends Controller
     }
 
     public function store()
-    {
-        $k = "value";
-        $requestTags = request()->all()["tags"]; 
+    {        
+        if (isset(request()->all()["tags"])) $requestTags = request()->all()["tags"]; 
+        //dd(request()->all()["tags"]);
+        else $requestTags = array( '{"key": 0, "value": "default"}' );
         $data = request()->validate([
             'title' => 'required',
             'subtitle' => '',
@@ -49,6 +50,7 @@ class MediaController extends Controller
 
         $media = \App\Models\Media::create($data);
 
+        $k = "value";
         foreach ($requestTags as $value) {
 
             $key = strtolower(json_decode($value)->$k);

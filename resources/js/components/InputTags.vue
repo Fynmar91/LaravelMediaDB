@@ -1,5 +1,5 @@
 <template>
-    <tags-input element-id="tags"
+    <tags-input element-id="tags" required
         v-model="selectedTags"
         :existing-tags="existingTags"
         :typeahead="true">

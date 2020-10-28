@@ -52,7 +52,7 @@
                 window.location.href = "/m/" + id;
             },
             sort: function(s) {
-                if(s === this.currentSort) {
+                if (s === this.currentSort) {
                   this.currentSortDirection = this.currentSortDirection==='asc'?'desc':'asc';
                 }
                 this.currentSort = s;
@@ -62,11 +62,11 @@
             sortedMedia: function() {
                 return this.mediaData.sort((a,b) => {
                     let modifier = 1;
-                    if(this.currentSortDirection === 'desc') modifier = -1;                    
+                    if (this.currentSortDirection === 'desc') modifier = -1;                    
                     if (a[this.currentSort] === null) return 1 * modifier;
                     if (b[this.currentSort] === null) return -1 * modifier;
-                    if(a[this.currentSort].toString().toLowerCase() < b[this.currentSort].toString().toLowerCase()) return -1 * modifier;
-                    if(a[this.currentSort].toString().toLowerCase() > b[this.currentSort].toString().toLowerCase()) return 1 * modifier;
+                    if (a[this.currentSort].toString().toLowerCase() < b[this.currentSort].toString().toLowerCase()) return -1 * modifier;
+                    if (a[this.currentSort].toString().toLowerCase() > b[this.currentSort].toString().toLowerCase()) return 1 * modifier;
                     return 0;
                 });
             }

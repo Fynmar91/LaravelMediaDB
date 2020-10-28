@@ -39705,6 +39705,7 @@ var render = function() {
   return _c("tags-input", {
     attrs: {
       "element-id": "tags",
+      required: "",
       "existing-tags": _vm.existingTags,
       typeahead: true
     },

@@ -14,7 +14,7 @@
                 <div class="form-group row">
                     <label for="title" class="col-md-4 col-form-label">Titel</label>        
                     <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" 
-                        name="title" value="{{ old('title') }}" required autocomplete="title" autofocus>        
+                        name="title" value="{{ old('title') }}" autocomplete="title" autofocus>        
                         @error('title')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -50,10 +50,10 @@
                 </div>
 
                 <div class="row">
-                    <h2>Tags:</h2>
+                    <p>debug:</p>
                     <br>
                     @foreach ($tags as $tag)
-                        <h3>"{{ $tag->name }}"_</h3>
+                        <p>_{{ $tag->name }}_</p>
                     @endforeach
                 </div>                
 
