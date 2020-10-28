@@ -1,20 +1,32 @@
 <template>
-    <table class="table table-hover table-dark">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Subtitle</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="item in media" :key="item.id" @dblclick="showMedia(item.id)">
-                    <th scope="row">{{ item.id }}</th>
-                    <td>{{ item.title }}</td>
-                    <td>{{ item.subtitle }}</td>
-                </tr>  
-            </tbody>
-        </table>
+    <div>
+        <div class="row pb-3">
+            <div class="d-flex">
+                <div class="pr-5"><strong>{{ media.length }}</strong> entries</div>
+                <div class="pr-5"><strong>999</strong> completed</div>
+                <div class="pr-5"><strong>999</strong>%</div>
+            </div>
+            <a href="/m/create">Medieneintrag hinzufügen</a>
+        </div>    
+        <div class="row">
+            <table class="table table-hover table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Subtitle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="pointer" v-for="item in media" :key="item.id" @click="showMedia(item.id)">
+                        <th scope="row">{{ item.id }}</th>
+                        <td>{{ item.title }}</td>
+                        <td>{{ item.subtitle }}</td>
+                    </tr>  
+                </tbody>
+            </table>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -30,3 +42,9 @@
         }
     }
 </script>
+
+<style scoped>
+    .pointer {
+        cursor: pointer;
+    }
+</style>
