@@ -2062,10 +2062,17 @@ __webpack_require__.r(__webpack_exports__);
       return this.mediaData.sort(function (a, b) {
         var modifier = 1;
         if (_this.currentSortDirection === 'desc') modifier = -1;
-        if (a[_this.currentSort] === null) return 1 * modifier;
-        if (b[_this.currentSort] === null) return -1 * modifier;
-        if (a[_this.currentSort].toString().toLowerCase() < b[_this.currentSort].toString().toLowerCase()) return -1 * modifier;
-        if (a[_this.currentSort].toString().toLowerCase() > b[_this.currentSort].toString().toLowerCase()) return 1 * modifier;
+
+        if (_this.currentSort === 'id') {
+          if (a[_this.currentSort] < b[_this.currentSort]) return -1 * modifier;
+          if (a[_this.currentSort] > b[_this.currentSort]) return 1 * modifier;
+        } else {
+          if (a[_this.currentSort] === null) return 1 * modifier;
+          if (b[_this.currentSort] === null) return -1 * modifier;
+          if (a[_this.currentSort].toString().toLowerCase() < b[_this.currentSort].toString().toLowerCase()) return -1 * modifier;
+          if (a[_this.currentSort].toString().toLowerCase() > b[_this.currentSort].toString().toLowerCase()) return 1 * modifier;
+        }
+
         return 0;
       });
     }
