@@ -2026,6 +2026,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['media'],
   mounted: function mounted() {
@@ -39554,7 +39556,9 @@ var render = function() {
                 _vm._v(" "),
                 _c("td", [_vm._v(_vm._s(item.title))]),
                 _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(item.subtitle))])
+                _c("td", [_vm._v(_vm._s(item.subtitle))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(item.status))])
               ]
             )
           }),
@@ -39593,7 +39597,9 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Title")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Subtitle")])
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Subtitle")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Status")])
       ])
     ])
   }

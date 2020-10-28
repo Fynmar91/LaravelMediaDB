@@ -44,6 +44,7 @@ class MediaController extends Controller
         $data = request()->validate([
             'title' => 'required',
             'subtitle' => '',
+            'status' => '',
         ]);
 
         $media = \App\Models\Media::create($data);

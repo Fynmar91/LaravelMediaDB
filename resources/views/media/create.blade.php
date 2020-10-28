@@ -33,6 +33,17 @@
                         @enderror
                 </div>
 
+                <div class="form-group row">
+                    <label for="status" class="col-md-4 col-form-label">Status</label>        
+                    <input id="status" type="text" class="form-control @error('status') is-invalid @enderror" 
+                        name="status" value="{{ old('status') }}" autocomplete="status">        
+                        @error('status')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                </div>
+
                 <div class="form-group">
                     <label for="tags" class="col-form-label">Tags</label>
                     <tag-input :tags="{{ $tags }}" class="@error('subtitle') is-invalid @enderror"></tag-input>

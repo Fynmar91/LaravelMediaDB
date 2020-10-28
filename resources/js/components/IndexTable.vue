@@ -15,6 +15,7 @@
                         <th scope="col">#</th>
                         <th scope="col">Title</th>
                         <th scope="col">Subtitle</th>
+                        <th scope="col">Status</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -22,6 +23,7 @@
                         <th scope="row">{{ item.id }}</th>
                         <td>{{ item.title }}</td>
                         <td>{{ item.subtitle }}</td>
+                        <td>{{ item.status }}</td>
                     </tr>  
                 </tbody>
             </table>
